@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #000;
+}
+
+body, .quote-input{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1, p {
+    color: #fff;
+}
+
+.container{
+    background-color: blue;
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 700px;
+    max-width: 90%;
+}
+
+.timer{
+    position: absolute;
+    top: 2rem;
+    font-size: 3rem;
+    color: blue;
+    font-weight: bold;
+}
