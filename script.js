@@ -10,7 +10,12 @@ function getRandomQuote() {
 
 async function renderNextQuote(){
     const quote = await getRandomQuote()
-    quoteDisplayElement.innerText = quote
+    quoteDisplayElement.innerText = ''
+    quote.split('').forEach(character => {
+        const characterSpan = document.createElement('span')
+        characterSpan.innerText = character
+        quoteDisplayElement.appendChild(characterSpan)
+    })
     quoteInputElement.value = null
 }
 
