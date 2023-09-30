@@ -5,17 +5,26 @@ const quoteInputElement = document.getElementById('quoteInput')
 quoteInputElement.addEventListener('input', () => {
     const arrayQuote = quoteDisplayElement.querySelectorAll('span')
     const arrayValue = quoteInputElement.value.split('')
+
+    let correct = true
     arrayQuote.forEach((characterSpan, index) => {
         const character = arrayValue[index]
-        if (character === characterSpan.innerText) {
+        if (character == null) {
+            characterSpan.classList.remove('correct')
+            characterSpan.classList.remove('incorrect')
+            correct = false
+        } else if (character === characterSpan.innerText) {
             characterSpan.classList.add('correct')
             characterSpan.classList.remove('incorrect')
         } else {
             characterSpan.classList.remove('correct')
             characterSpan.classList.remove('incorrect')
+            correct = false
         }
     })
-})
+
+    if (correct) renderNewQuote()
+}) 
 
 function getRandomQuote() {
     return fetch (RANDOM_QUOTE_API_URL)
@@ -23,7 +32,7 @@ function getRandomQuote() {
     .then(data => data.content)
 }
 
-async function renderNextQuote(){
+async function renderNewQuote(){
     const quote = await getRandomQuote()
     quoteDisplayElement.innerText = ''
     quote.split('').forEach(character => {
@@ -34,4 +43,4 @@ async function renderNextQuote(){
     quoteInputElement.value = null
 }
 
-renderNextQuote()
+renderNewQuote()
