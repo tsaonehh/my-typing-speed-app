@@ -42,10 +42,20 @@ async function renderNewQuote(){
         quoteDisplayElement.appendChild(characterSpan)
     })
     quoteInputElement.value = null
+    startTimer()
 }
 
+let startTime
 function startTimer() {
     timerElement.innerText = 0
+    startTime = new Date()
+    setInterval(() => {
+        timerElement.innerText = getTimerTime()
+    }, 1000)
+}
+
+function getTimerTime () {
+    return Math.floor((new Date() - startTime) / 1000)
 }
 
 renderNewQuote()
