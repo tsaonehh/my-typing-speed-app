@@ -19,7 +19,7 @@ quoteInputElement.addEventListener('input', () => {
             characterSpan.classList.remove('incorrect')
         } else {
             characterSpan.classList.remove('correct')
-            characterSpan.classList.remove('incorrect')
+            characterSpan.classList.add('incorrect')
             correct = false
         }
     })
