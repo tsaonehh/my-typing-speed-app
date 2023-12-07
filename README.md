@@ -1,5 +1,6 @@
 # my-typing-speed-app
 this is my most interesting project yet,
+(and my proudest creation) - 
 an app that measures your typing speed
 and also accuracy. it's a game but also a little challenge if you may. 
 This will be beneficial for people who want
